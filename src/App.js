@@ -3,9 +3,8 @@ import NavBar from './containers/NavBar';
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-grey-800 h-screen">
       <NavBar />
-      <h1>Hola coders</h1>
     </div>
   );
 }
