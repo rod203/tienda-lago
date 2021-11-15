@@ -1,3 +1,3 @@
-# Final Proyecto - React Js - CoderHouse
+# Final Proyect - React Js - CoderHouse
 
 Hi! im construction.
