@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MenuNav from '../components/menuNav/MenuNav'
+import NavItem from '../components/NavItem/NavItem'
 import CardWidget from '../components/CartWidget/CartWidget'
 
 export default class NavBar extends Component {
@@ -19,9 +19,18 @@ export default class NavBar extends Component {
           <span className="text-5xl tracking-tight">Sugar</span>
         </div>
 
-        <MenuNav />
+        <ul className="flexflex-row justify-between font-mono font-normal">
+          <NavItem content="Home" href="/home" />
+          <NavItem content="New" href="/new" />
+          <NavItem content="Shirts" href="/shirts" />
+          <NavItem content="Jackets" href="/jackets" />
+          <NavItem content="Sweatshirts" href="/sweatshirts" />
+          <NavItem content="T-shirts" href="/tshirts" />
+          <NavItem content="Tops/Sweaters" href="/tops-sweaters" />
+          <NavItem content="Pants" href="/pants" />
+        </ul>
         <CardWidget CartWidgetCounter={this.state.CartWdigetCounter} />
-
+      
       </nav>
     )
   }
