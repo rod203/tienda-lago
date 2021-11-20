@@ -1,17 +1,15 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import ItemCount from '../components/ItemCount';
 
-export default class ItemListContainer extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            greeting: "Hi! im a message."
-          }
-    }
-    render() {
-        return (
-            <div className="flex justify-center">
-                <h2>{this.state.greeting}</h2>
-            </div>
-        )
-    }
+export default function ItemListContainer() {
+
+  const [message, setMessage] = useState("Hi! i'm a message");
+
+  return (
+    <div className="flex justify-center flex-col items-center">
+      <h2 className="m-10">{message}</h2>
+      <ItemCount init={1} stock={10} />
+    </div>
+  )
 }
+
