@@ -1,19 +1,33 @@
 import React, { useState } from 'react'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ItemCount = ({init, stock, onAdd}) => {
 
 	const [Counter, setCounter] = useState(init);
 
-	const limitStockAlert = () => {
-		alert("Stock limit exceeded")
-	}
+
+  const StockLimitAlert = () => {
+		toast.warn('Sorry! We have only ' + JSON.parse(stock), {
+			position: "top-center",
+			bodyClassName: "font-mono text-sm p-10",
+			autoClose: 4000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			role: "alert",
+			});
+	};
 
 	const deduct = (counterStat) => {
 		counterStat === 1 ? console.log("hola") : setCounter(Counter - 1);
 	}
 	
 	const sum = (stockLimit) => {
-		stockLimit === Counter ? limitStockAlert() : setCounter(Counter + 1);
+		stockLimit === Counter ? StockLimitAlert() : setCounter(Counter + 1);
 	}
 
   return (
@@ -32,6 +46,7 @@ const ItemCount = ({init, stock, onAdd}) => {
 			<button onClick={onAdd} className=" w-full flex items-center justify-center mt-2 py-1 border border-transparent font-medium rounded text-lg text-white font-mono font-normal bg-gray-400 hover:bg-gray-900"> 
 				Add Item
 			</button>
+			<ToastContainer toastClassName="bg-black"/>
     </div>
   )
 }

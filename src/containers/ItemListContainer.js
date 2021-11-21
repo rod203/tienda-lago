@@ -8,7 +8,7 @@ export default function ItemListContainer() {
   return (
     <div className="flex justify-center flex-col items-center">
       <h2 className="m-10">{message}</h2>
-      <ItemCount init={1} stock={10} />
+      <ItemCount init={1} stock={4} />
     </div>
   )
 }
