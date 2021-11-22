@@ -43,6 +43,11 @@ const ItemCount = ({init, stock, onAdd}) => {
 		stockLimit === Counter ? StockLimitAlert() : setCounter(Counter + 1);
 	}
 
+	const addProduct = () => {
+		onAdd = stock;
+		addItemSuccess();
+	}
+
   return (
     <div>
 			<div className="w-32 flex justify-between h-10 rounded-md shadow-md border-gray-200 ">
@@ -56,10 +61,10 @@ const ItemCount = ({init, stock, onAdd}) => {
 					+
 				</button>
       </div>
-			<button onClick={onAdd, addItemSuccess} className=" w-full flex items-center justify-center mt-2 py-1 border border-transparent font-medium rounded text-lg text-white font-mono font-normal bg-gray-400 hover:bg-gray-900"> 
+			<button onClick={addProduct} className=" w-full flex items-center justify-center mt-2 py-1 border border-transparent font-medium rounded text-lg text-white font-mono font-normal bg-gray-400 hover:bg-gray-900"> 
 				Add Item
 			</button>
-			<ToastContainer toastClassName="bg-black"/>
+			<ToastContainer/>
     </div>
   )
 }
