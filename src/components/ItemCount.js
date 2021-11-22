@@ -35,13 +35,9 @@ const ItemCount = ({init, stock, onAdd}) => {
 			});
 	}
 
-	const deduct = (counterStat) => {
-		counterStat === 1 ? console.log("hola") : setCounter(Counter - 1);
-	}
+	const deduct = (counterStat) => {counterStat === 1 ? console.log("hola") : setCounter(Counter - 1)}
 	
-	const sum = (stockLimit) => {
-		stockLimit === Counter ? StockLimitAlert() : setCounter(Counter + 1);
-	}
+	const sum = (stockLimit) => {stockLimit === Counter ? StockLimitAlert() : setCounter(Counter + 1)}
 
 	const addProduct = () => {
 		onAdd = stock;
