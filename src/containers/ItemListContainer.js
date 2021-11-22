@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import ItemCount from '../components/ItemCount';
+import ItemCount from '../components/ItemCount'
+import ItemList from '../components/itemList';
 
 export default function ItemListContainer() {
 
@@ -9,6 +10,7 @@ export default function ItemListContainer() {
     <div className="flex justify-center flex-col items-center">
       <h2 className="m-10">{message}</h2>
       <ItemCount init={1} stock={4} />
+      <ItemList/>
     </div>
   )
 }
