@@ -25,7 +25,7 @@ export default function NavBar() {
         </button>
 
       </div>
-      <div className={"flex transform transition duration-200 ease-in-out flex-col w-4/5 xs:w-2/3 lg:hidden absolute z-30 top-0 left-0 bg-gray-900 h-screen " + (isActive ? " " : "-translate-x-full")}>
+      <div className={"flex transform transition duration-200 ease-in-out flex-col w-4/5 xs:w-1/2 lg:hidden absolute z-30 top-0 left-0 bg-black h-screen shadow-xl " + (isActive ? " " : "-translate-x-full")}>
         {/* close menu botton */}
         <button onClick={ToggleClass} className="p-10">
           <svg xmlns="http://www.w3.org/2000/svg" className=" text-white xs:h-10 xs:w-10 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
