@@ -6,16 +6,12 @@ export default function ItemListContainer() {
   
   const [productList, setProductList] = useState([]);
 
-
   useEffect(()=> { 
     fetch('https://rickandmortyapi.com/api/character')
-    .then(res => res.json())
-    .then(data => {setProductList(data.results);}
-    )
+    .then(result => result.json())
+    .then(data => {setProductList(data.results)})
     .catch()
   }, [])
-
-  console.log(productList);
 
   return (
     <div className="flex justify-center flex-col items-center">
