@@ -35,7 +35,21 @@ const ItemCount = ({init, stock, onAdd}) => {
 			});
 	}
 
-	const deduct = (counterStat) => {counterStat === 1 ? console.log("hola") : setCounter(Counter - 1)}
+	const errorAlert = () => {
+		toast.error('What do you try its not posible', {
+			position: "top-center",
+			bodyClassName: "font-mono text-xs p-10",
+			autoClose: 4000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			role: "alert",
+			});
+	}
+
+	const deduct = (counterStat) => {counterStat !== 1 ? setCounter(Counter - 1) : errorAlert() }
 	
 	const sum = (stockLimit) => {stockLimit === Counter ? StockLimitAlert() : setCounter(Counter + 1)}
 
@@ -45,7 +59,7 @@ const ItemCount = ({init, stock, onAdd}) => {
 	}
 
   return (
-    <div>
+    <div className="m-10">
 			<div className="w-32 flex justify-between h-10 rounded-md shadow-md border-gray-200 ">
 				<button onClick={() => {deduct(Counter)}} className="w-8 flex items-center justify-center py-1 border border-transparent font-medium rounded text-xl text-white bg-gray-400 hover:bg-gray-900"> 
 					-
