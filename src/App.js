@@ -1,12 +1,38 @@
 import NavBar from './containers/NavBar';
-import ItemListContainer from './containers/ItemListContainer';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './containers/Home';
+import ItemDetailContainer from './containers/ItemDetailContainer'
+import ProductsPage from './containers/ProductsPage';
+import CartPage from './containers/CartPage';
+import ItemDetails from './components/ItemDetails';
 
 function App() {
   return (
-    <div className="bg-grey-800 h-screen">
-      <NavBar />
-      <ItemListContainer />
-    </div>
+    <Router>
+
+    <NavBar />
+      
+    <Switch>
+
+      <Route exact path="/">
+        <Home />
+      </Route>
+
+      <Route exact path="/ProductsPage">
+        <ProductsPage />
+      </Route>
+
+      <Route path="/ProductDetails/:id">
+        <ItemDetailContainer />
+      </Route> 
+
+      <Route path="/CartPage">
+        <CartPage />
+      </Route> 
+
+    </Switch>
+
+    </Router>
   );
 }
 

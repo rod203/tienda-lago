@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
-import NavItem from '../components/NavItem/NavItem'
-import CardWidget from '../components/CartWidget/CartWidget'
+import NavItem from '../components/NavItem'
+import CardWidget from '../components/CartWidget'
+import { useHistory } from 'react-router';
 
 export default function NavBar() {
 
   const [CartCounter, setCartCounter] = useState(0);
   const [isActive, setActive] = useState(false);
-
   const ToggleClass = () => {setActive(!isActive)};
-
+  const history = useHistory();
+  
   return (
     <nav className="bg-black flex flex-row justify-between items-center p-10">
       
@@ -31,7 +32,7 @@ export default function NavBar() {
         </button>
       
         <ul className="flex-col justify-between font-mono font-normal ml-10">
-          <NavItem content="Home" href="/home" />
+          <NavItem content="Home" href="/" />
           <NavItem content="New" href="/new" />
           <NavItem content="Shirts" href="/shirts" />
           <NavItem content="Jackets" href="/jackets" />
@@ -41,18 +42,19 @@ export default function NavBar() {
           <NavItem content="Pants" href="/pants" />
         </ul>
 
-        <div>
-          
-        </div>
-
       </div>
 
       {/* logo */}
-      <span className="flex text-white font-sans italic font-bold xs:text-5xl text-4xl tracking-tight">Sugar</span>
+      <button onClick={() => history.push('/')}>
+        <span className="flex text-white font-sans italic font-bold xs:text-5xl text-4xl tracking-tight">
+          Sugar
+        </span>
+      </button>
+      
 
       {/* desktop menu */}
       <ul className="flex-row justify-between font-mono font-normal hidden lg:block">
-        <NavItem content="Home" href="/home" />
+        <NavItem content="Home" href="/" />
         <NavItem content="New" href="/new" />
         <NavItem content="Shirts" href="/shirts" />
         <NavItem content="Jackets" href="/jackets" />

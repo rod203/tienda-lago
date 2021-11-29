@@ -2,22 +2,22 @@ import React, { useEffect, useState } from 'react'
 import ItemCount from '../components/ItemCount'
 import ItemList from '../components/itemList';
 
+const {getProducts} = require ('../services/postService')
+
 export default function ItemListContainer() {
   
-  const [productList, setProductList] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(()=> { 
-    fetch('https://rickandmortyapi.com/api/character')
-    .then(result => result.json())
-    .then(data => {setProductList(data.results)})
-    .catch()
+    getProducts()
+      .then(res => setProducts(res))
   }, [])
 
   return (
     <div className="flex justify-center flex-col items-center">
-      <ItemCount init={1} stock={4} />
+      {/* <ItemCount init={1} stock={4} /> */}
       <div className="max-w-2xl mx-auto py-5 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <ItemList products={productList}/>
+        <ItemList products={products}/>
       </div>
     </div>
   )
