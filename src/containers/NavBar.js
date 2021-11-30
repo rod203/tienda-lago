@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import NavItem from '../components/NavItem'
 import CardWidget from '../components/CartWidget'
-import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default function NavBar() {
 
   const [CartCounter, setCartCounter] = useState(0);
   const [isActive, setActive] = useState(false);
   const ToggleClass = () => {setActive(!isActive)};
-  const history = useHistory();
   
   return (
     <nav className="bg-black flex flex-row justify-between items-center p-10">
@@ -33,35 +32,29 @@ export default function NavBar() {
       
         <ul className="flex-col justify-between font-mono font-normal ml-10">
           <NavItem content="Home" href="/" />
-          <NavItem content="New" href="/new" />
-          <NavItem content="Shirts" href="/shirts" />
-          <NavItem content="Jackets" href="/jackets" />
-          <NavItem content="Sweatshirts" href="/sweatshirts" />
-          <NavItem content="T-shirts" href="/tshirts" />
-          <NavItem content="Tops/Sweaters" href="/tops-sweaters" />
-          <NavItem content="Pants" href="/pants" />
+          <NavItem content="Electronics" href="/electronics" />
+          <NavItem content="Jewelery" href="/jewelery" />
+          <NavItem content="Men's clothing" href="/men's%20clothing" />
+          <NavItem content="Women's clothing" href="/Women's%20clothing" />
         </ul>
 
       </div>
 
       {/* logo */}
-      <button onClick={() => history.push('/')}>
+      <Link to={`/`}>
         <span className="flex text-white font-sans italic font-bold xs:text-5xl text-4xl tracking-tight">
           Sugar
         </span>
-      </button>
+      </Link>
       
 
       {/* desktop menu */}
       <ul className="flex-row justify-between font-mono font-normal hidden lg:block">
         <NavItem content="Home" href="/" />
-        <NavItem content="New" href="/new" />
-        <NavItem content="Shirts" href="/shirts" />
-        <NavItem content="Jackets" href="/jackets" />
-        <NavItem content="Sweatshirts" href="/sweatshirts" />
-        <NavItem content="T-shirts" href="/tshirts" />
-        <NavItem content="Tops/Sweaters" href="/tops-sweaters" />
-        <NavItem content="Pants" href="/pants" />
+        <NavItem content="Electronics" href="/electronics" />
+        <NavItem content="Jewelery" href="/jewelery" />
+        <NavItem content="Men's clothing" href="/men's%20clothing" />
+        <NavItem content="Women's clothing" href="/Women's%20clothing" />
       </ul>
       
       {/* cart icon */}

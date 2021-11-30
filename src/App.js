@@ -4,7 +4,6 @@ import Home from './containers/Home';
 import ItemDetailContainer from './containers/ItemDetailContainer'
 import ProductsPage from './containers/ProductsPage';
 import CartPage from './containers/CartPage';
-import ItemDetails from './components/ItemDetails';
 
 function App() {
   return (
