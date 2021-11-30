@@ -7,7 +7,7 @@ import ItemDetails from '../components/ItemDetails'
 export default function ItemDetailContainer() {
 
   const { id } = useParams();
-  const [ product, setProduct ] = useState({title:'', id:'', description:'',image:'', price:''});
+  const [ product, setProduct ] = useState({title:'', id:'', description:'',image:'', price:'', category:''});
 
   useEffect(() => {
     getProduct(id)
@@ -21,6 +21,7 @@ export default function ItemDetailContainer() {
       description={product.description}
       price={product.price}
       image={product.image}
+      category={product.category}
     />
   )
 }

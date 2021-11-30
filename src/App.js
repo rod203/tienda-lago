@@ -4,6 +4,7 @@ import Home from './containers/Home';
 import ItemDetailContainer from './containers/ItemDetailContainer'
 import ProductsPage from './containers/ProductsPage';
 import CartPage from './containers/CartPage';
+import ItemCategoryContainer from './containers/ItemCategoryContainer'
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
 
       <Route exact path="/ProductsPage">
         <ProductsPage />
+      </Route>
+
+      <Route path="/Category/:categoryName">
+        <ItemCategoryContainer />
       </Route>
 
       <Route path="/ProductDetails/:id">

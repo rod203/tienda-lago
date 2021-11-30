@@ -32,10 +32,10 @@ export default function NavBar() {
       
         <ul className="flex-col justify-between font-mono font-normal ml-10">
           <NavItem content="Home" href="/" />
-          <NavItem content="Electronics" href="/electronics" />
-          <NavItem content="Jewelery" href="/jewelery" />
-          <NavItem content="Men's clothing" href="/men's%20clothing" />
-          <NavItem content="Women's clothing" href="/Women's%20clothing" />
+          <NavItem content="Electronics" href="/category/electronics" />
+          <NavItem content="Jewelery" href="/category/jewelery" />
+          <NavItem content="Men's clothing" href="/category/men's%20clothing" />
+          <NavItem content="Women's clothing" href="/category/women's%20clothing" />
         </ul>
 
       </div>
@@ -51,10 +51,10 @@ export default function NavBar() {
       {/* desktop menu */}
       <ul className="flex-row justify-between font-mono font-normal hidden lg:block">
         <NavItem content="Home" href="/" />
-        <NavItem content="Electronics" href="/electronics" />
-        <NavItem content="Jewelery" href="/jewelery" />
-        <NavItem content="Men's clothing" href="/men's%20clothing" />
-        <NavItem content="Women's clothing" href="/Women's%20clothing" />
+        <NavItem content="Electronics" href="/category/electronics" />
+        <NavItem content="Jewelery" href="/category/jewelery" />
+        <NavItem content="Men's clothing" href="/category/men's%20clothing" />
+        <NavItem content="Women's clothing" href="/category/women's%20clothing" />
       </ul>
       
       {/* cart icon */}
