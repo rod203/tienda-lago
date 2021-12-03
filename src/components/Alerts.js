@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const StockLimitAlert = () => {
-    toast.warn('Sorry! We have only ', {
+    toast.warn('Sorry! We dont have more', {
       position: "top-center",
       bodyClassName: "font-mono text-sm p-10",
       autoClose: 4000,
