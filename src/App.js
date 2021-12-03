@@ -5,6 +5,7 @@ import ItemDetailContainer from './containers/ItemDetailContainer'
 import ProductsPage from './containers/ProductsPage';
 import CartPage from './containers/CartPage';
 import ItemCategoryContainer from './containers/ItemCategoryContainer'
+import Footer from './containers/Footer';
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
       </Route> 
 
     </Switch>
+
+      <Footer />
 
     </Router>
   );
