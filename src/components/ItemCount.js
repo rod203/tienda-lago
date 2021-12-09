@@ -1,13 +1,13 @@
 import React from 'react'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {errorAlert, StockLimitAlert} from './Alerts'
+import {addItemSuccess, errorAlert, StockLimitAlert} from './Alerts'
 
 const ItemCount = ({quantity, setQuantity, stock, onAdd}) => {
 
 	const handleRest = (counterStat) => {counterStat !== 1 ? setQuantity(quantity - 1) : errorAlert() }
 	
-	const handleSum = (stockLimit) => {stockLimit === amount ? StockLimitAlert() : setQuantity(quantity + 1)}
+	const handleSum = (stockLimit) => {stockLimit === quantity ? StockLimitAlert() : setQuantity(quantity + 1)}
 
   return (
     <div className="m-5 flex flex-row justify-center">
@@ -15,14 +15,19 @@ const ItemCount = ({quantity, setQuantity, stock, onAdd}) => {
 				<button onClick={() => {handleRest(quantity)}} className="w-8 flex items-center justify-center py-1 border border-transparent font-medium rounded text-xl text-white bg-gray-400 hover:bg-gray-900"> 
 					-
 				</button>
-				<span className="align-middle p-2 px-5 text-2xl leading-none bg-gray-50">{quantity}</span>
+
+				<p className="align-middle p-2 px-5 text-2xl leading-none bg-gray-50">{quantity}</p>
+				
 				<button onClick={() => {handleSum(stock)}} className="w-8 flex items-center justify-center py-1 border border-transparent font-medium rounded text-xl text-white bg-gray-400 hover:bg-gray-900"> 
 					+
 				</button>
+
       </div>
-			<button onClick={onAdd} className=" w-full flex items-center justify-center p-2 ml-5 border border-transparent font-light rounded text-md text-white font-mono bg-gray-400 hover:bg-gray-900"> 
+
+			<button onClick={() => { onAdd(); addItemSuccess() } } className=" w-full flex items-center justify-center p-2 ml-5 border border-transparent font-light rounded text-md text-white font-mono bg-gray-400 hover:bg-gray-900"> 
 				Add Item
 			</button>
+			
 			<ToastContainer />
     </div>
   )

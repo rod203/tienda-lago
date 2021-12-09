@@ -42,9 +42,9 @@ export default function NavBar() {
 
       {/* logo */}
       <Link to={`/`}>
-        <span className="flex text-white font-sans italic font-bold xs:text-5xl text-4xl tracking-tight">
+        <h1 className="flex text-white font-sans italic font-bold xs:text-5xl text-4xl tracking-tight">
           Sugar
-        </span>
+        </h1>
       </Link>
       
 

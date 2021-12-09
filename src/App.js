@@ -10,29 +10,31 @@ import CartProvider from './context/CartContext';
 
 function App() {
   return (
-    <CartProvider>
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/ProductsPage">
-            <ProductsPage />
-          </Route>
-          <Route path="/Category/:categoryName">
-            <ItemCategoryContainer />
-          </Route>
-          <Route path="/ProductDetails/:id">
-            <ItemDetailContainer />
-          </Route> 
-          <Route path="/CartPage">
-            <CartPage />
-          </Route> 
-        </Switch>
-        <Footer />
-      </Router>
-    </CartProvider>
+    <div className="flex h-full flex-col">
+      <CartProvider>
+        <Router>
+          <NavBar />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/ProductsPage">
+              <ProductsPage />
+            </Route>
+            <Route path="/Category/:categoryName">
+              <ItemCategoryContainer />
+            </Route>
+            <Route path="/ProductDetails/:id">
+              <ItemDetailContainer />
+            </Route> 
+            <Route path="/CartPage">
+              <CartPage />
+            </Route> 
+          </Switch>
+          <Footer />
+        </Router>
+      </CartProvider>
+    </div>
   );
 }
 

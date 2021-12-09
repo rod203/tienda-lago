@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react'
-import { useEffect } from 'react/cjs/react.development'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react/cjs/react.development'
 import ItemCount from '../components/ItemCount'
 import { CartContext } from '../context/CartContext'
-import {errorAlert, addItemSuccess, StockLimitAlert} from './Alerts'
 
 export default function ItemDetails({title, id, category, description, price, image }) {
 
@@ -12,24 +11,22 @@ export default function ItemDetails({title, id, category, description, price, im
   const [quantity, setQuantity] = useState(1);
 
   const handleAddItem = () =>{
-    if (amount > 0) {
+    if (quantity > 0) {
       addItem({
           id,
           title,
           price,
           image,
-          amount
+          quantity
       })
-      addItemSuccess();
     }   
   }
-
   useEffect(() => {
-    console.log(cart);
-  },[])
+    console.log(cart)
+  })
 
   return (
-    <section className="text-gray-700 body-font overflow-hidden bg-white">
+    <section className="mb-auto text-gray-700 body-font overflow-hidden bg-white">
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           
@@ -42,20 +39,19 @@ export default function ItemDetails({title, id, category, description, price, im
             <p className="leading-relaxed">{description}</p>
 
             <div className="flex mt-6 items-center border-b-2 border-gray-200 mb-5">
-              <span className="title-font font-medium text-2xl text-gray-900">Price: ${price}</span>
+              <p className="title-font font-medium text-2xl text-gray-900">Price: ${price}</p>
 
               { !isInCart(id)
                   ? <ItemCount 
-                      amount={quantity}
-                      setAmount={setQuantity}
+                      quantity={quantity}
+                      setQuantity={setQuantity}
                       stock={4}
                       onAdd={handleAddItem}
                     />
-                  : <Link to="/cart" className="flex items-center justify-center ml-5 p-3 border border-transparent font-medium rounded text-xl text-white bg-black hover:bg-gray-700">Terminar mi compra</Link>
+                  : <Link to="/cartPage" className="flex items-center justify-center ml-5 p-3 border border-transparent font-medium rounded text-xl text-white bg-black hover:bg-gray-700">Terminar mi compra</Link>
               }
               
             </div>
-
           </div>
         </div>
       </div>

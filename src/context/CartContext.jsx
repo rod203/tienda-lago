@@ -8,7 +8,7 @@ function CartProvider({children}) {
   const [cart, setCart] = useState([]);
   
   const addItem = (item) => {
-    setCart([...cart, item])
+    setCart([...cart, item]);
   }
   const isInCart = (id) => {
     return cart.some(item => item.id === id)

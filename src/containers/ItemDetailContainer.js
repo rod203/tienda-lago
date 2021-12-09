@@ -9,10 +9,6 @@ export default function ItemDetailContainer() {
   const { id } = useParams();
   const [ product, setProduct ] = useState({title:'', id:'', description:'',image:'', price:'', category:''});
 
-  const onadd = () => {
-    console.log("me renderice");
-  };
-
   useEffect(() => {
     getProduct(id)
       .then(res => setProduct(res))
