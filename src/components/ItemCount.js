@@ -1,28 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {errorAlert, addItemSuccess, StockLimitAlert} from './Alerts'
+import {errorAlert, StockLimitAlert} from './Alerts'
 
-const ItemCount = ({init, stock, onAdd}) => {
+const ItemCount = ({quantity, setQuantity, stock, onAdd}) => {
 
-	const [Counter, setCounter] = useState(init);
-
-	const deduct = (counterStat) => {counterStat !== 1 ? setCounter(Counter - 1) : errorAlert() }
+	const handleRest = (counterStat) => {counterStat !== 1 ? setQuantity(quantity - 1) : errorAlert() }
 	
-	const sum = (stockLimit) => {stockLimit === Counter ? StockLimitAlert() : setCounter(Counter + 1)}
+	const handleSum = (stockLimit) => {stockLimit === amount ? StockLimitAlert() : setQuantity(quantity + 1)}
 
   return (
     <div className="m-5 flex flex-row justify-center">
 			<div className="w-32 flex justify-between h-10 rounded-md border-gray-200 ">
-				<button onClick={() => {deduct(Counter)}} className="w-8 flex items-center justify-center py-1 border border-transparent font-medium rounded text-xl text-white bg-gray-400 hover:bg-gray-900"> 
+				<button onClick={() => {handleRest(quantity)}} className="w-8 flex items-center justify-center py-1 border border-transparent font-medium rounded text-xl text-white bg-gray-400 hover:bg-gray-900"> 
 					-
 				</button>
-				<span className="align-middle p-2 px-5 text-2xl leading-none bg-gray-50">{Counter}</span>
-				<button onClick={() => {sum(stock)}} className="w-8 flex items-center justify-center py-1 border border-transparent font-medium rounded text-xl text-white bg-gray-400 hover:bg-gray-900"> 
+				<span className="align-middle p-2 px-5 text-2xl leading-none bg-gray-50">{quantity}</span>
+				<button onClick={() => {handleSum(stock)}} className="w-8 flex items-center justify-center py-1 border border-transparent font-medium rounded text-xl text-white bg-gray-400 hover:bg-gray-900"> 
 					+
 				</button>
       </div>
-			<button onClick={() => {addItemSuccess(); onAdd = Counter}} className=" w-full flex items-center justify-center p-2 ml-5 border border-transparent font-light rounded text-md text-white font-mono bg-gray-400 hover:bg-gray-900"> 
+			<button onClick={onAdd} className=" w-full flex items-center justify-center p-2 ml-5 border border-transparent font-light rounded text-md text-white font-mono bg-gray-400 hover:bg-gray-900"> 
 				Add Item
 			</button>
 			<ToastContainer />
